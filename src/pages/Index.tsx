@@ -1,8 +1,10 @@
 import TournamentHeader from "@/components/TournamentHeader";
 import RegistrationForm from "@/components/RegistrationForm";
 import TournamentInfo from "@/components/TournamentInfo";
+import TournamentBracket from "@/components/TournamentBracket";
 import { Separator } from "@/components/ui/separator";
 import { Trophy, Calendar, Users } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const Index = () => {
   return (
@@ -17,7 +19,7 @@ const Index = () => {
               <p className="text-xl text-cs-light mb-6">
                 Докажите, что вы лучшие! Регистрируйтесь на самый престижный турнир по Counter-Strike 2
               </p>
-              <div className="flex justify-center gap-3">
+              <div className="flex justify-center gap-3 flex-wrap">
                 <span className="inline-flex items-center bg-cs-accent/20 px-3 py-1 rounded-lg text-cs-accent">
                   <Trophy className="w-4 h-4 mr-1" />
                   500 000 ₽
@@ -28,7 +30,7 @@ const Index = () => {
                 </span>
                 <span className="inline-flex items-center bg-cs-accent/20 px-3 py-1 rounded-lg text-cs-accent">
                   <Users className="w-4 h-4 mr-1" />
-                  32 команды
+                  10 команд
                 </span>
               </div>
             </div>
@@ -39,32 +41,52 @@ const Index = () => {
       <TournamentHeader />
       
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2">
-            <h2 className="text-2xl font-bold text-white mb-6">Информация о турнире</h2>
-            <div className="bg-[#1E2329] p-6 rounded-lg shadow-lg mb-8">
-              <p className="text-cs-light mb-4">
-                Приглашаем вас принять участие в ежегодном турнире по Counter-Strike 2, который пройдет в мае 2025 года. 
-                Этот турнир объединит лучшие команды со всей России и СНГ для соревнований в одной из самых популярных 
-                киберспортивных дисциплин.
-              </p>
-              <p className="text-cs-light mb-4">
-                Наш турнир предоставляет уникальную возможность для команд всех уровней - от начинающих до профессионалов - 
-                проявить себя на киберспортивной арене и побороться за внушительный призовой фонд.
-              </p>
-              <p className="text-cs-light">
-                Регистрация команд открыта до 1 мая 2025 года. Спешите подать заявку!
-              </p>
-            </div>
-            
-            <TournamentInfo />
-          </div>
+        <Tabs defaultValue="info" className="w-full">
+          <TabsList className="grid grid-cols-3 w-full max-w-md mx-auto mb-8">
+            <TabsTrigger value="info">Информация</TabsTrigger>
+            <TabsTrigger value="bracket">Турнирная сетка</TabsTrigger>
+            <TabsTrigger value="register">Регистрация</TabsTrigger>
+          </TabsList>
           
-          <div>
-            <h2 className="text-2xl font-bold text-white mb-6">Регистрация</h2>
-            <RegistrationForm />
-          </div>
-        </div>
+          <TabsContent value="info" className="space-y-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <div className="lg:col-span-3">
+                <h2 className="text-2xl font-bold text-white mb-6">Информация о турнире</h2>
+                <div className="bg-[#1E2329] p-6 rounded-lg shadow-lg mb-8">
+                  <p className="text-cs-light mb-4">
+                    Приглашаем вас принять участие в ежегодном турнире по Counter-Strike 2, который пройдет в мае 2025 года. 
+                    Этот турнир объединит лучшие команды со всей России и СНГ для соревнований в одной из самых популярных 
+                    киберспортивных дисциплин.
+                  </p>
+                  <p className="text-cs-light mb-4">
+                    Наш турнир предоставляет уникальную возможность для команд всех уровней - от начинающих до профессионалов - 
+                    проявить себя на киберспортивной арене и побороться за внушительный призовой фонд.
+                  </p>
+                  <p className="text-cs-light">
+                    Регистрация открыта до 1 мая 2025 года. Спешите подать заявку! Вы можете зарегистрироваться как индивидуально,
+                    так и командой от 2 до 5 игроков.
+                  </p>
+                </div>
+                
+                <TournamentInfo />
+              </div>
+            </div>
+          </TabsContent>
+          
+          <TabsContent value="bracket">
+            <div className="space-y-6">
+              <h2 className="text-2xl font-bold text-white mb-6">Турнирная сетка</h2>
+              <TournamentBracket />
+            </div>
+          </TabsContent>
+          
+          <TabsContent value="register">
+            <div className="max-w-2xl mx-auto">
+              <h2 className="text-2xl font-bold text-white mb-6">Регистрация</h2>
+              <RegistrationForm />
+            </div>
+          </TabsContent>
+        </Tabs>
       </div>
       
       <Separator className="bg-cs-accent/20" />
