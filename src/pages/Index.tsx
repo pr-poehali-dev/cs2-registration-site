@@ -2,6 +2,7 @@ import TournamentHeader from "@/components/TournamentHeader";
 import RegistrationForm from "@/components/RegistrationForm";
 import TournamentInfo from "@/components/TournamentInfo";
 import { Separator } from "@/components/ui/separator";
+import { Trophy, Calendar, Users } from "lucide-react";
 
 const Index = () => {
   return (
