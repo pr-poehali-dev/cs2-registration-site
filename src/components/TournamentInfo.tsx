@@ -43,7 +43,6 @@ const TournamentInfo = () => {
               <Map className="h-5 w-5 text-cs-accent mt-1 flex-shrink-0" />
               <div>
                 <h4 className="font-semibold">Структура</h4>
-                <p className="text-sm text-muted-foreground">Групповая стадия: 8 групп по 4 команды</p>
                 <p className="text-sm text-muted-foreground">Плей-офф: Single elimination bracket (Bo3)</p>
                 <p className="text-sm text-muted-foreground">Гранд-финал: Bo5</p>
               </div>

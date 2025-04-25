@@ -30,7 +30,7 @@ const Index = () => {
                 </span>
                 <span className="inline-flex items-center bg-cs-accent/20 px-3 py-1 rounded-lg text-cs-accent">
                   <Users className="w-4 h-4 mr-1" />
-                  10 команд
+                  8 команд
                 </span>
               </div>
             </div>
